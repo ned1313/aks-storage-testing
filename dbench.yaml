@@ -4,16 +4,15 @@ metadata:
   name: dbench-pv-claim
 spec:
   storageClassName: azurefile
-  # storageClassName: gp2
-  # storageClassName: local-storage
-  # storageClassName: ibmc-block-bronze
-  # storageClassName: ibmc-block-silver
-  # storageClassName: ibmc-block-gold
+  # storageClassName: default
+  # storageClassName: azurefile
+  # storageClassName: nfs-client
+  # storageClassName: managed-premium
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 500Gi
+      storage: 5000Gi
 ---
 apiVersion: batch/v1
 kind: Job
