@@ -6,11 +6,11 @@ spec:
   # storageClassName: azurefile
   # storageClassName: azurefilepremium
   # storageClassName: managed-standard-hdd
-  storageClassName: managed-standard-ssd
+  # storageClassName: managed-standard-ssd
   # storageClassName: managed-premium-ssd
   # storageClassName: nfs-client
   # storageClassName: managed-premium
-  # storageClassName: managed-ultra
+  storageClassName: managed-ultra
   accessModes:
     - ReadWriteOnce
   resources:
