@@ -1,25 +1,3 @@
-kind: PersistentVolumeClaim
-apiVersion: v1
-metadata:
-  name: dbench-pv-claim
-spec:
-  # storageClassName: azurefile
-  # storageClassName: azurefilepremium
-  # storageClassName: managed-standard-hdd
-  # storageClassName: managed-standard-ssd
-  storageClassName: managed-premium-ssd
-  # storageClassName: nfs-client
-  # storageClassName: managed-premium
-  # storageClassName: managed-ultra
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      # storage: 1000Gi
-      # storage: 5120Gi
-      # storage: 10000Gi
-      storage: 20000Gi
----
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -50,6 +28,9 @@ spec:
       restartPolicy: Never
       volumes:
       - name: dbench-pv
-        persistentVolumeClaim:
-          claimName: dbench-pv-claim
+        azureDisk:
+          kind: Managed
+          diskName: ultraSSD
+          diskURI: DISK_URI
+          cachingMode: None
   backoffLimit: 4
